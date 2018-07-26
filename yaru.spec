@@ -106,3 +106,8 @@ fi
 %files sound-theme
 %{_datadir}/sounds/Yaru/
 
+%changelog
+
+* Thu Jul 26 2018 David Va <davidva AT tuta DOT io> 18.10-1
+- Initial build
+
