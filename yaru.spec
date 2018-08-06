@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           yaru
-Version:        18.10
+Version:        18.10.1
 Release:        1%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
@@ -107,6 +107,9 @@ fi
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Sun Aug 05 2018 David Va <davidva AT tuta DOT io> 18.10.1-1
+- Updated to 18.10.1
 
 * Thu Jul 26 2018 David Va <davidva AT tuta DOT io> 18.10-1
 - Initial build
