@@ -1,13 +1,17 @@
 %global debug_package %{nil}
+%global gitdate 20180809
+%global commit0 50dbb724d207c9395f86b7aa3af2a55b13e5ab17
+%global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
+%global gver .git%{shortcommit0}
 
 Name:           yaru
 Version:        18.10.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
 License:        LGPLv3
 URL:            https://github.com/ubuntu/yaru
-Source:         https://github.com/ubuntu/yaru/archive/%{version}.tar.gz
+Source0:	https://github.com/ubuntu/yaru/archive/%{commit0}.tar.gz#/%{name}-%{shortcommit0}.tar.gz
 
 BuildRequires:  meson
 BuildRequires:  gcc
@@ -60,7 +64,7 @@ Summary:        Sound theme Ubuntu community theme "yaru"
 Sound theme Ubuntu community theme "yaru"
 
 %prep
-%autosetup -n yaru-%{version}
+%autosetup -n %{name}-%{commit0} 
 
 %build
 %meson
@@ -107,6 +111,9 @@ fi
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Sun Aug 05 2018 David Va <davidva AT tuta DOT io> 18.10.1-2
+- Updated to current commit
 
 * Sun Aug 05 2018 David Va <davidva AT tuta DOT io> 18.10.1-1
 - Updated to 18.10.1
