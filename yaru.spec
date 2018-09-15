@@ -106,6 +106,10 @@ fi
 
 %files gtk3-theme
 %{_datadir}/themes/Yaru/gtk-3.0/
+%{_datadir}/themes/Yaru-dark/gtk-3.0/assets
+%{_datadir}/themes/Yaru-dark/gtk-3.0/gtk.css
+%{_datadir}/themes/Yaru-dark/index.theme
+
 
 %files sound-theme
 %{_datadir}/sounds/Yaru/
