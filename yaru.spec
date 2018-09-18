@@ -116,7 +116,7 @@ fi
 
 %changelog
 
-* Mon Sep 18 2018 David Va <davidva AT tuta DOT io> 18.10.4-1
+* Mon Sep 17 2018 David Va <davidva AT tuta DOT io> 18.10.4-1
 - Updated to 18.10.4
 
 * Fri Sep 14 2018 David Va <davidva AT tuta DOT io> 18.10.3-1
