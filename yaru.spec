@@ -1,12 +1,12 @@
 %global debug_package %{nil}
-%global gitdate 20181022
-%global commit0 ed5e0b9a62c80a8084ef124af6ab1e73757b178c
+%global gitdate 20181029
+%global commit0 65cb24f1e192f63f31fa8009adca98d3d0f79c2a
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
 Name:           yaru
 Version:        18.10.7
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
 License:        LGPLv3
@@ -115,6 +115,9 @@ fi
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Mon Oct 29 2018 David Va <davidva AT tuta DOT io> 18.10.7-2
+- Updated to current commit
 
 * Mon Oct 22 2018 David Va <davidva AT tuta DOT io> 18.10.7-1
 - Updated to 18.10.7
