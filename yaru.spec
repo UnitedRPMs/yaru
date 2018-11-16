@@ -110,7 +110,7 @@ fi
 %{_datadir}/themes/Yaru-dark/gtk-3.0/gtk.css
 %{_datadir}/themes/Yaru-dark/index.theme
 %{_datadir}/themes/Yaru-dark/gtk-3.20/
-%{_datadir}/themes/Yaru/gtk-3.20/assets/
+%{_datadir}/themes/Yaru/gtk-3.20/
 
 
 %files sound-theme
