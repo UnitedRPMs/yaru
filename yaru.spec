@@ -16,6 +16,7 @@ Source0:	https://github.com/ubuntu/yaru/archive/%{commit0}.tar.gz#/%{name}-%{sho
 BuildRequires:  meson
 BuildRequires:  gcc
 BuildRequires:	sassc
+BuildRequires:	glib2-devel
 
 Requires:	yaru-gnome-shell-theme 
 Requires:	yaru-icon-theme 
@@ -106,7 +107,7 @@ fi
 
 %files gtk3-theme
 %{_datadir}/themes/Yaru/gtk-3.0/
-%{_datadir}/themes/Yaru-dark/gtk-3.0/assets
+%{_datadir}/themes/Yaru-dark/gtk-3.0/gtk.gresource
 %{_datadir}/themes/Yaru-dark/gtk-3.0/gtk.css
 %{_datadir}/themes/Yaru-dark/index.theme
 %{_datadir}/themes/Yaru-dark/gtk-3.20/
