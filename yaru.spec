@@ -104,6 +104,7 @@ fi
 
 %files gtk2-theme
 %{_datadir}/themes/Yaru/gtk-2.0/
+%{_datadir}/themes/Yaru-dark/gtk-2.0/
 
 %files gtk3-theme
 %{_datadir}/themes/Yaru/gtk-3.0/
