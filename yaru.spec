@@ -1,12 +1,12 @@
 %global debug_package %{nil}
-%global gitdate 20190406
-%global commit0 6a4d98747160c9d28bb0fe1249d4117d37bb472c
+%global gitdate 20190510
+%global commit0 31b2d808074be39913cb016b8bae18f53f2d4275
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
 Name:           yaru
 Version:        19.04.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
 License:        LGPLv3
@@ -119,6 +119,9 @@ fi
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Sat May 11 2019 David Va <davidva AT tuta DOT io> 19.04.2-3
+- Updated to current commit
 
 * Sat Apr 06 2019 David Va <davidva AT tuta DOT io> 19.04.2-2
 - Updated to 19.04.2
