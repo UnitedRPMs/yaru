@@ -1,12 +1,12 @@
 %global debug_package %{nil}
-%global gitdate 20190820
-%global commit0 e9bc7b6b7454dcdf0f7d6287c3cf662aa25e8433
+%global gitdate 20191031
+%global commit0 f343edb4681b46d41b5769fb1262ed502da2a922
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
 Name:           yaru
 Version:        19.10.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
 License:        LGPLv3
@@ -97,6 +97,8 @@ fi
 %{_datadir}/gnome-shell/
 %{_datadir}/wayland-sessions/Yaru-wayland.desktop
 %{_datadir}/xsessions/Yaru.desktop
+%{_datadir}/themes/Yaru-dark/gnome-shell/
+%{_datadir}/themes/Yaru/gnome-shell/
 
 %files icon-theme
 %{_datadir}/icons/Yaru/
@@ -115,15 +117,17 @@ fi
 %{_datadir}/themes/Yaru-dark/gtk-3.20/
 %{_datadir}/themes/Yaru/gtk-3.20/
 %{_datadir}/themes/Yaru-dark/gtk-3.0/gtk-dark.css 
-%{_datadir}/themes/Yaru-light/gtk-3.0/
-%{_datadir}/themes/Yaru-light/index.theme
 %{_datadir}/themes/Yaru-light/gtk-*/
+%{_datadir}/themes/Yaru-light/index.theme
 
 
 %files sound-theme
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Thu Oct 31 2019 David Va <davidva AT tuta DOT io> 19.10.4-2
+- Updated to current commit
 
 * Fri Oct 04 2019 David Va <davidva AT tuta DOT io> 19.10.4-1
 - Updated to 19.10.4
