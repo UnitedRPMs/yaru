@@ -6,7 +6,7 @@
 
 Name:           yaru
 Version:        19.10.4
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
 License:        LGPLv3
@@ -74,6 +74,8 @@ ninja -C build -j1
 %install
 DESTDIR=%{buildroot} ninja -C build install -j1
 
+rm -f %{buildroot}/%{_datadir}/themes/Yaru/gnome-shell
+cp -rf %{buildroot}/usr/share/gnome-shell/theme/Yaru %{buildroot}/%{_datadir}/themes/Yaru/gnome-shell
 
 %post icon-theme
 /bin/touch --no-create %{_datadir}/icons/%{name} &>/dev/null || :
@@ -92,11 +94,13 @@ fi
 %{_datadir}/glib-2.0/schemas/99_Yaru.gschema.override
 
 %files gnome-shell-theme
-%{_datadir}/gnome-shell/
+%{_datadir}/gnome-shell/extensions/ubuntu-dock@ubuntu.com/yaru.css
+%{_datadir}/gnome-shell/modes/yaru.json
+%exclude %{_datadir}/gnome-shell/theme/Yaru/
 %{_datadir}/wayland-sessions/Yaru-wayland.desktop
 %{_datadir}/xsessions/Yaru.desktop
 %{_datadir}/themes/Yaru-dark/gnome-shell/
-%{_datadir}/themes/Yaru/gnome-shell
+%{_datadir}/themes/Yaru/gnome-shell/
 
 %files icon-theme
 %{_datadir}/icons/Yaru/
@@ -123,6 +127,9 @@ fi
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Sun Dec 15 2019 David Va <davidva AT tuta DOT io> 19.10.4-4
+- Deleted symlink
 
 * Sat Dec 14 2019 David Va <davidva AT tuta DOT io> 19.10.4-3
 - Updated to current commit
