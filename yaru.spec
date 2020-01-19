@@ -1,12 +1,12 @@
 %global debug_package %{nil}
-%global gitdate 20191214
-%global commit0 243471fc480cbee45d2c18d0fecc31a3f557d407
+%global gitdate 20200119
+%global commit0 6f1ee988f27486b8a1faa079f6184a499e559918
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
 Name:           yaru
-Version:        19.10.4
-Release:        4%{?dist}
+Version:        19.10.5
+Release:        2%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
 License:        LGPLv3
@@ -99,7 +99,7 @@ fi
 %exclude %{_datadir}/gnome-shell/theme/Yaru/
 %{_datadir}/wayland-sessions/Yaru-wayland.desktop
 %{_datadir}/xsessions/Yaru.desktop
-%{_datadir}/themes/Yaru-dark/gnome-shell/
+#{_datadir}/themes/Yaru-dark/gnome-shell/
 %{_datadir}/themes/Yaru/gnome-shell/
 
 %files icon-theme
@@ -127,6 +127,9 @@ fi
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Sun Jan 19 2020 David Va <davidva AT tuta DOT io> 19.10.5-2
+- Updated to 19.10.5
 
 * Sun Dec 15 2019 David Va <davidva AT tuta DOT io> 19.10.4-4
 - Deleted symlink
