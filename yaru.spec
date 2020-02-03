@@ -1,6 +1,6 @@
 %global debug_package %{nil}
-%global gitdate 20200128
-%global commit0 406bbb46a75c043978bcf72e61c7823effef9c97
+%global gitdate 20200202
+%global commit0 e73a71156a561276abdd1c256d0ac7c648ea9f3a
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
@@ -75,7 +75,7 @@ ninja -C build -j1
 DESTDIR=%{buildroot} ninja -C build install -j1
 
 rm -f %{buildroot}/%{_datadir}/themes/Yaru/gnome-shell
-cp -rf %{buildroot}/usr/share/gnome-shell/theme/Yaru %{buildroot}/%{_datadir}/themes/Yaru/gnome-shell
+cp -rf %{buildroot}%{_datadir}/gnome-shell/theme/Yaru %{buildroot}/%{_datadir}/themes/Yaru/gnome-shell
 
 %post icon-theme
 /bin/touch --no-create %{_datadir}/icons/%{name} &>/dev/null || :
@@ -99,12 +99,13 @@ fi
 %exclude %{_datadir}/gnome-shell/theme/Yaru/
 %{_datadir}/wayland-sessions/Yaru-wayland.desktop
 %{_datadir}/xsessions/Yaru.desktop
-#{_datadir}/themes/Yaru-dark/gnome-shell/
 %{_datadir}/themes/Yaru/gnome-shell/
+%{_datadir}/themes/Yaru-dark/gnome-shell/
 
 %files icon-theme
 %{_datadir}/icons/Yaru/
 %{_datadir}/themes/Yaru/index.theme
+%{_datadir}/themes/Yaru/unity/
 
 %files gtk2-theme
 %{_datadir}/themes/Yaru/gtk-2.0/
@@ -118,7 +119,6 @@ fi
 %{_datadir}/themes/Yaru-dark/index.theme
 %{_datadir}/themes/Yaru-dark/gtk-3.20/
 %{_datadir}/themes/Yaru/gtk-3.20/
-%{_datadir}/themes/Yaru-dark/gtk-3.0/gtk-dark.css 
 %{_datadir}/themes/Yaru-light/gtk-*/
 %{_datadir}/themes/Yaru-light/index.theme
 
