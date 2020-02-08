@@ -1,22 +1,43 @@
+#
+# spec file for package yaru
+#
+# Copyright (c) 2020 UnitedRPMs.
+#
+# All modifications and additions to the file contributed by third parties
+# remain the property of their copyright owners, unless otherwise agreed
+# upon. The license for this file, and modifications and additions to the
+# file, is the same license as for the pristine package itself (unless the
+# license for the pristine package is not an Open Source License, in which
+# case the license is the MIT License). An "Open Source License" is a
+# license that conforms to the Open Source Definition (Version 1.9)
+# published by the Open Source Initiative.
+
+# Please submit bugfixes or comments via https://goo.gl/zqFJft
+#
+
 %global debug_package %{nil}
-%global gitdate 20200202
-%global commit0 e73a71156a561276abdd1c256d0ac7c648ea9f3a
+%global gitdate 20200206
+%global commit0 6a69293370543bb30ef5c602068f6e3501bf4484
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
+# 
+%define _legacy_common_support 1
+
 Name:           yaru
-Version:        19.10.5
-Release:        3%{?dist}
+Version:        20.04.1
+Release:        1%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
 License:        LGPLv3
 URL:            https://github.com/ubuntu/yaru
 Source0:	https://github.com/ubuntu/yaru/archive/%{commit0}.tar.gz#/%{name}-%{shortcommit0}.tar.gz
 
-BuildRequires:  meson
+BuildRequires:  meson 
 BuildRequires:  gcc
 BuildRequires:	sassc
 BuildRequires:	glib2-devel
+BuildRequires:  hicolor-icon-theme
 
 Requires:	yaru-gnome-shell-theme 
 Requires:	yaru-icon-theme 
@@ -46,6 +67,7 @@ Icon theme Ubuntu community theme "yaru"
 #--
 %package gtk2-theme
 Summary:        The GTK+ 2 parts of the Ubuntu community theme "yaru"
+Requires:       %{name}-icon-theme = %{version}-%{release}
 
 %description gtk2-theme
 The GTK+ 2 parts of the Ubuntu community theme "yaru"
@@ -53,6 +75,7 @@ The GTK+ 2 parts of the Ubuntu community theme "yaru"
 #--
 %package gtk3-theme
 Summary:        The GTK+ 3 parts of the Ubuntu community theme "yaru"
+Requires:       %{name}-icon-theme = %{version}-%{release}
 
 %description gtk3-theme
 The GTK+ 3 parts of the Ubuntu community theme "yaru"
@@ -68,11 +91,11 @@ Sound theme Ubuntu community theme "yaru"
 %autosetup -n %{name}-%{commit0} 
 
 %build
-meson build
-ninja -C build -j1
+%meson
+%meson_build
 
 %install
-DESTDIR=%{buildroot} ninja -C build install -j1
+%meson_install
 
 rm -f %{buildroot}/%{_datadir}/themes/Yaru/gnome-shell
 cp -rf %{buildroot}%{_datadir}/gnome-shell/theme/Yaru %{buildroot}/%{_datadir}/themes/Yaru/gnome-shell
@@ -127,6 +150,9 @@ fi
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Thu Feb 06 2020 David Va <davidva AT tuta DOT io> 20.04.1-3
+- Updated to 20.04.1
 
 * Tue Jan 28 2020 David Va <davidva AT tuta DOT io> 19.10.5-3
 - Updated to current commit
