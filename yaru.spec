@@ -16,8 +16,8 @@
 #
 
 %global debug_package %{nil}
-%global gitdate 20200206
-%global commit0 6a69293370543bb30ef5c602068f6e3501bf4484
+%global gitdate 20200213
+%global commit0 05cd3b10ca4d56ce673873de28d42e39c5c9c1ef
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
@@ -26,10 +26,10 @@
 
 Name:           yaru
 Version:        20.04.1
-Release:        1%{?dist}
+Release:        3%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
-License:        LGPLv3
+License:        LGPLv3 and CC-BY-SA
 URL:            https://github.com/ubuntu/yaru
 Source0:	https://github.com/ubuntu/yaru/archive/%{commit0}.tar.gz#/%{name}-%{shortcommit0}.tar.gz
 
@@ -45,14 +45,17 @@ Requires:	yaru-gtk2-theme
 Requires:	yaru-gtk3-theme 
 Requires:	yaru-sound-theme
 Provides:	communitheme = %{version}-%{release}
+Provides:	yaru-theme = %{version}-%{release}
 
 %description
 Ubuntu community theme "yaru" formaly communitheme; the default theme for Ubuntu
+The complete theme.
 
 #--
 %package gnome-shell-theme
 Summary:        GNOME Shell Ubuntu community theme "yaru"
 Requires:       %{name}-icon-theme = %{version}-%{release}
+Provides:	gnome-shell-theme-yaru = %{version}
 
 %description gnome-shell-theme
 GNOME Shell Ubuntu community theme "yaru"
@@ -100,6 +103,7 @@ Sound theme Ubuntu community theme "yaru"
 rm -f %{buildroot}/%{_datadir}/themes/Yaru/gnome-shell
 cp -rf %{buildroot}%{_datadir}/gnome-shell/theme/Yaru %{buildroot}/%{_datadir}/themes/Yaru/gnome-shell
 
+
 %post icon-theme
 /bin/touch --no-create %{_datadir}/icons/%{name} &>/dev/null || :
 /usr/bin/gtk-update-icon-cache %{_datadir}/icons/%{name} &>/dev/null || :
@@ -114,6 +118,8 @@ fi
 /usr/bin/gtk-update-icon-cache %{_datadir}/icons/%{name} &>/dev/null || :
 
 %files
+%license COPYING COPYING.LGPL-2.1 COPYING.LGPL-3.0 LICENSE_CCBYSA
+%doc AUTHORS CONTRIBUTING.md README.md
 %{_datadir}/glib-2.0/schemas/99_Yaru.gschema.override
 
 %files gnome-shell-theme
@@ -145,11 +151,13 @@ fi
 %{_datadir}/themes/Yaru-light/gtk-*/
 %{_datadir}/themes/Yaru-light/index.theme
 
-
 %files sound-theme
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Thu Feb 13 2020 David Va <davidva AT tuta DOT io> 20.04.1-3
+- Updated to current commit
 
 * Thu Feb 06 2020 David Va <davidva AT tuta DOT io> 20.04.1-3
 - Updated to 20.04.1
