@@ -129,7 +129,8 @@ fi
 %{_datadir}/wayland-sessions/Yaru-wayland.desktop
 %{_datadir}/xsessions/Yaru.desktop
 %{_datadir}/themes/Yaru/gnome-shell/
-%{_datadir}/themes/Yaru-dark/gnome-shell/
+%{_datadir}/gnome-shell/theme/Yaru-dark/
+%{_datadir}/themes/Yaru-dark/gnome-shell
 
 %files icon-theme
 %{_datadir}/icons/Yaru/
