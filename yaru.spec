@@ -26,7 +26,7 @@
 
 Name:           yaru
 Version:        20.04.3
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
 License:        LGPLv3 and CC-BY-SA
@@ -103,6 +103,8 @@ Sound theme Ubuntu community theme "yaru"
 rm -f %{buildroot}/%{_datadir}/themes/Yaru/gnome-shell
 cp -rf %{buildroot}%{_datadir}/gnome-shell/theme/Yaru %{buildroot}/%{_datadir}/themes/Yaru/gnome-shell
 
+rm -f %{buildroot}/%{_datadir}/themes/Yaru-dark/gnome-shell 
+cp -rf %{buildroot}/%{_datadir}/gnome-shell/theme/Yaru-dark %{buildroot}/%{_datadir}/themes/Yaru-dark/gnome-shell
 
 %post icon-theme
 /bin/touch --no-create %{_datadir}/icons/%{name} &>/dev/null || :
@@ -130,7 +132,7 @@ fi
 %{_datadir}/xsessions/Yaru.desktop
 %{_datadir}/themes/Yaru/gnome-shell/
 %{_datadir}/gnome-shell/theme/Yaru-dark/
-%{_datadir}/themes/Yaru-dark/gnome-shell
+%{_datadir}/themes/Yaru-dark/gnome-shell/
 
 %files icon-theme
 %{_datadir}/icons/Yaru/
@@ -156,6 +158,9 @@ fi
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Sat Mar 21 2020 David Va <davidva AT tuta DOT io> 20.04.3-4
+- Rebuilt
 
 * Thu Mar 19 2020 David Va <davidva AT tuta DOT io> 20.04.3-3
 - Updated to 20.04.3
