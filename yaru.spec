@@ -17,7 +17,7 @@
 
 %global debug_package %{nil}
 %global gitdate 20200324
-%global commit0 6ef0d4e27662b2546a49137215ba71a2f5c7a60c
+%global commit0 b7baeba9ecbe61db04a50ecb12ea396a1ac70b8a
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
@@ -25,7 +25,7 @@
 %define _legacy_common_support 1
 
 Name:           yaru
-Version:        20.04.4
+Version:        20.04.5
 Release:        4%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
@@ -158,6 +158,9 @@ fi
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Wed Apr 15 2020 David Va <davidva AT tuta DOT io> 20.04.5-4
+- Updated to 20.04.5
 
 * Tue Mar 24 2020 David Va <davidva AT tuta DOT io> 20.04.4-4
 - Updated to 20.04.4
