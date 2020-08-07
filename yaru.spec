@@ -16,8 +16,8 @@
 #
 
 %global debug_package %{nil}
-%global gitdate 20200512
-%global commit0 41aa8833d05371879a912cbad6e8a3ff2aac172c
+%global gitdate 20200806
+%global commit0 5d3ae164729f456196b6c1af3a362f6a9ba40dda
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
@@ -25,8 +25,8 @@
 %define _legacy_common_support 1
 
 Name:           yaru
-Version:        20.10.1
-Release:        4%{?dist}
+Version:        20.10.2
+Release:        7%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
 License:        LGPLv3 and CC-BY-SA
@@ -137,7 +137,7 @@ fi
 %files icon-theme
 %{_datadir}/icons/Yaru/
 %{_datadir}/themes/Yaru/index.theme
-%{_datadir}/themes/Yaru/unity/
+#{_datadir}/themes/Yaru/unity/
 
 %files gtk2-theme
 %{_datadir}/themes/Yaru/gtk-2.0/
@@ -148,6 +148,7 @@ fi
 %{_datadir}/themes/Yaru/gtk-3.0/
 %{_datadir}/themes/Yaru-dark/gtk-3.0/gtk.gresource
 %{_datadir}/themes/Yaru-dark/gtk-3.0/gtk.css
+%{_datadir}/themes/Yaru-dark/gtk-3.0/gtk-dark.css
 %{_datadir}/themes/Yaru-dark/index.theme
 %{_datadir}/themes/Yaru-dark/gtk-3.20/
 %{_datadir}/themes/Yaru/gtk-3.20/
@@ -158,6 +159,9 @@ fi
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Thu Aug 06 2020 David Va <davidva AT tuta DOT io> 20.10.2-7
+- Updated to 20.10.2
 
 * Tue May 12 2020 David Va <davidva AT tuta DOT io> 20.10.1-4
 - Updated to 20.10.1
