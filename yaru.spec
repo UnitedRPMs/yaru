@@ -16,7 +16,7 @@
 #
 
 %global debug_package %{nil}
-%global commit0 f600592a7251b24950768404cdd6a8828a0a5ae2
+%global commit0 c36fcc5e83cb4c3801ae501b97aad018b1710bc2
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
@@ -24,7 +24,7 @@
 %define _legacy_common_support 1
 
 Name:           yaru
-Version:        20.10.6
+Version:        20.10.6.1
 Release:        7%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
@@ -158,6 +158,9 @@ fi
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Wed Oct 14 2020 David Va <davidva AT tuta DOT io> 20.10.6.1-7
+- Updated to 20.10.6.1
 
 * Thu Oct 08 2020 David Va <davidva AT tuta DOT io> 20.10.6-7
 - Updated to 20.10.6
