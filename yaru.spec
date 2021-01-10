@@ -1,7 +1,7 @@
 #
 # spec file for package yaru
 #
-# Copyright (c) 2020 UnitedRPMs.
+# Copyright (c) 2021 UnitedRPMs.
 #
 # All modifications and additions to the file contributed by third parties
 # remain the property of their copyright owners, unless otherwise agreed
@@ -16,7 +16,7 @@
 #
 
 %global debug_package %{nil}
-%global commit0 c36fcc5e83cb4c3801ae501b97aad018b1710bc2
+%global commit0 b11c115fc624c5245efb4df93c64e8685a7c26e3
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
@@ -25,7 +25,7 @@
 
 Name:           yaru
 Version:        20.10.6.1
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
 License:        LGPLv3 and CC-BY-SA
@@ -158,6 +158,9 @@ fi
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Fri Jan 08 2021 David Va <davidva AT tuta DOT io> 20.10.6.1-8
+- Updated to current commit
 
 * Wed Oct 14 2020 David Va <davidva AT tuta DOT io> 20.10.6.1-7
 - Updated to 20.10.6.1
