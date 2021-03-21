@@ -16,7 +16,7 @@
 #
 
 %global debug_package %{nil}
-%global commit0 b11c115fc624c5245efb4df93c64e8685a7c26e3
+%global commit0 c7d93582d5671799f20a7abc5827a8166a1f255a
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
@@ -24,8 +24,8 @@
 %define _legacy_common_support 1
 
 Name:           yaru
-Version:        20.10.6.1
-Release:        8%{?dist}
+Version:        21.04.1
+Release:        7%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
 License:        LGPLv3 and CC-BY-SA
@@ -42,6 +42,7 @@ Requires:	yaru-gnome-shell-theme
 Requires:	yaru-icon-theme 
 Requires:	yaru-gtk2-theme 
 Requires:	yaru-gtk3-theme 
+Requires:	yaru-gtk4-theme 
 Requires:	yaru-sound-theme
 Provides:	communitheme = %{version}-%{release}
 Provides:	yaru-theme = %{version}-%{release}
@@ -83,6 +84,14 @@ Requires:       %{name}-icon-theme = %{version}-%{release}
 The GTK+ 3 parts of the Ubuntu community theme "yaru"
 
 #--
+%package gtk4-theme
+Summary:        The GTK+ 4 parts of the Ubuntu community theme "yaru"
+Requires:       %{name}-icon-theme = %{version}-%{release}
+
+%description gtk4-theme
+The GTK+ 4 parts of the Ubuntu community theme "yaru"
+
+#--
 %package sound-theme
 Summary:        Sound theme Ubuntu community theme "yaru"
 
@@ -99,11 +108,12 @@ Sound theme Ubuntu community theme "yaru"
 %install
 %meson_install
 
-rm -f %{buildroot}/%{_datadir}/themes/Yaru/gnome-shell
-cp -rf %{buildroot}%{_datadir}/gnome-shell/theme/Yaru %{buildroot}/%{_datadir}/themes/Yaru/gnome-shell
+rm -f %{buildroot}/%{_datadir}/themes/Yaru-light/gnome-shell
+cp -rf %{buildroot}%{_datadir}/gnome-shell/theme/Yaru-light %{buildroot}/%{_datadir}/themes/Yaru-light/gnome-shell
 
-rm -f %{buildroot}/%{_datadir}/themes/Yaru-dark/gnome-shell 
-cp -rf %{buildroot}/%{_datadir}/gnome-shell/theme/Yaru-dark %{buildroot}/%{_datadir}/themes/Yaru-dark/gnome-shell
+rm -f %{buildroot}/%{_datadir}/themes/Yaru/gnome-shell
+cp -rf %{buildroot}/%{_datadir}/gnome-shell/theme/Yaru %{buildroot}/%{_datadir}/themes/Yaru/gnome-shell
+
 
 %post icon-theme
 /bin/touch --no-create %{_datadir}/icons/%{name} &>/dev/null || :
@@ -123,25 +133,31 @@ fi
 %doc AUTHORS CONTRIBUTING.md README.md
 %{_datadir}/glib-2.0/schemas/99_Yaru.gschema.override
 
+
 %files gnome-shell-theme
 %{_datadir}/gnome-shell/extensions/ubuntu-dock@ubuntu.com/yaru.css
 %{_datadir}/gnome-shell/modes/yaru.json
 %exclude %{_datadir}/gnome-shell/theme/Yaru/
 %{_datadir}/wayland-sessions/Yaru-wayland.desktop
 %{_datadir}/xsessions/Yaru.desktop
-%{_datadir}/themes/Yaru/gnome-shell/
-%{_datadir}/gnome-shell/theme/Yaru-dark/
-%{_datadir}/themes/Yaru-dark/gnome-shell/
+%{_datadir}/themes/Yaru/gnome-shell
+%{_datadir}/gnome-shell/theme/Yaru-light/
+%{_datadir}/themes/Yaru-light/gnome-shell
+
 
 %files icon-theme
 %{_datadir}/icons/Yaru/
 %{_datadir}/themes/Yaru/index.theme
+%{_datadir}/themes/Yaru-dark/metacity-1/
+%{_datadir}/themes/Yaru-light/metacity-1/
+%{_datadir}/themes/Yaru/metacity-1/
 #{_datadir}/themes/Yaru/unity/
 
 %files gtk2-theme
 %{_datadir}/themes/Yaru/gtk-2.0/
 %{_datadir}/themes/Yaru-dark/gtk-2.0/
 %{_datadir}/themes/Yaru-light/gtk-2.0/
+%{_datadir}/gtksourceview-2.0/styles/*.xml
 
 %files gtk3-theme
 %{_datadir}/themes/Yaru/gtk-3.0/
@@ -153,11 +169,22 @@ fi
 %{_datadir}/themes/Yaru/gtk-3.20/
 %{_datadir}/themes/Yaru-light/gtk-*/
 %{_datadir}/themes/Yaru-light/index.theme
+%{_datadir}/gtksourceview-3.0/styles/*.xml
+
+%files gtk4-theme
+%{_datadir}/themes/Yaru-dark/gtk-4.0/
+%{_datadir}/themes/Yaru/gtk-4.0/gtk-dark.css
+%{_datadir}/themes/Yaru/gtk-4.0/gtk.css
+%{_datadir}/themes/Yaru/gtk-4.0/gtk.gresource
+%{_datadir}/gtksourceview-4/styles/*.xml
 
 %files sound-theme
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Sat Mar 20 2021 David Va <davidva AT tuta DOT io> 21.04.1-7
+- Updated to 21.04.1
 
 * Fri Jan 08 2021 David Va <davidva AT tuta DOT io> 20.10.6.1-8
 - Updated to current commit
