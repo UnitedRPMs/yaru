@@ -16,7 +16,7 @@
 #
 
 %global debug_package %{nil}
-%global commit0 c7d93582d5671799f20a7abc5827a8166a1f255a
+%global commit0 3170eb535dd5827ac3c4b37710f6ed57c3208658
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
@@ -24,7 +24,7 @@
 %define _legacy_common_support 1
 
 Name:           yaru
-Version:        21.04.1
+Version:        21.04.11
 Release:        7%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
@@ -138,8 +138,8 @@ fi
 %{_datadir}/gnome-shell/extensions/ubuntu-dock@ubuntu.com/yaru.css
 %{_datadir}/gnome-shell/modes/yaru.json
 %exclude %{_datadir}/gnome-shell/theme/Yaru/
-%{_datadir}/wayland-sessions/Yaru-wayland.desktop
-%{_datadir}/xsessions/Yaru.desktop
+%{_datadir}/wayland-sessions/Yaru.desktop
+%{_datadir}/xsessions/Yaru-xorg.desktop
 %{_datadir}/themes/Yaru/gnome-shell
 %{_datadir}/gnome-shell/theme/Yaru-light/
 %{_datadir}/themes/Yaru-light/gnome-shell
@@ -182,6 +182,9 @@ fi
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Thu Jun 03 2021 David Va <davidva AT tuta DOT io> 21.04.11-7
+- Updated to 21.04.11
 
 * Sat Mar 20 2021 David Va <davidva AT tuta DOT io> 21.04.1-7
 - Updated to 21.04.1
