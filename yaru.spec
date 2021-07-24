@@ -16,7 +16,7 @@
 #
 
 %global debug_package %{nil}
-%global commit0 3170eb535dd5827ac3c4b37710f6ed57c3208658
+%global commit0 a952efd842cbbec1b12800426e69c9673f99fbb3
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
@@ -24,7 +24,7 @@
 %define _legacy_common_support 1
 
 Name:           yaru
-Version:        21.04.11
+Version:        21.10.1
 Release:        7%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
@@ -149,14 +149,14 @@ fi
 %{_datadir}/icons/Yaru/
 %{_datadir}/themes/Yaru/index.theme
 %{_datadir}/themes/Yaru-dark/metacity-1/
-%{_datadir}/themes/Yaru-light/metacity-1/
+#%{_datadir}/themes/Yaru-light/metacity-1/
 %{_datadir}/themes/Yaru/metacity-1/
 #{_datadir}/themes/Yaru/unity/
 
 %files gtk2-theme
 %{_datadir}/themes/Yaru/gtk-2.0/
 %{_datadir}/themes/Yaru-dark/gtk-2.0/
-%{_datadir}/themes/Yaru-light/gtk-2.0/
+#%{_datadir}/themes/Yaru-light/gtk-2.0/
 %{_datadir}/gtksourceview-2.0/styles/*.xml
 
 %files gtk3-theme
@@ -167,8 +167,8 @@ fi
 %{_datadir}/themes/Yaru-dark/index.theme
 %{_datadir}/themes/Yaru-dark/gtk-3.20/
 %{_datadir}/themes/Yaru/gtk-3.20/
-%{_datadir}/themes/Yaru-light/gtk-*/
-%{_datadir}/themes/Yaru-light/index.theme
+#%{_datadir}/themes/Yaru-light/gtk-*/
+#%{_datadir}/themes/Yaru-light/index.theme
 %{_datadir}/gtksourceview-3.0/styles/*.xml
 
 %files gtk4-theme
@@ -182,6 +182,9 @@ fi
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Thu Jul 22 2021 David Va <davidva AT tuta DOT io> 21.10.1-7
+- Updated to 21.10.1
 
 * Thu Jun 03 2021 David Va <davidva AT tuta DOT io> 21.04.11-7
 - Updated to 21.04.11
