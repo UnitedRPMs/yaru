@@ -16,7 +16,7 @@
 #
 
 %global debug_package %{nil}
-%global commit0 670a52f268984ae339b6808216ed60b4cd939425
+%global commit0 446564fd98c3575ca03b3fda1ea59a274c0850af
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
@@ -24,8 +24,8 @@
 %define _legacy_common_support 1
 
 Name:           yaru
-Version:        21.10.1
-Release:        8%{?dist}
+Version:        21.10.2
+Release:        7%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
 License:        LGPLv3 and CC-BY-SA
@@ -182,6 +182,9 @@ fi
 %{_datadir}/sounds/Yaru/
 
 %changelog
+
+* Sat Oct 03 2021 David Va <davidva AT tuta DOT io> 21.10.2-7
+- Updated to 21.10.2
 
 * Sat Sep 18 2021 David Va <davidva AT tuta DOT io> 21.10.1-8
 - Updated to current commit
