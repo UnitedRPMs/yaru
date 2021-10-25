@@ -16,7 +16,7 @@
 #
 
 %global debug_package %{nil}
-%global commit0 446564fd98c3575ca03b3fda1ea59a274c0850af
+%global commit0 1c97fb5b6a2bf8338da0c145d30e4ad96932dd17
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
@@ -25,7 +25,7 @@
 
 Name:           yaru
 Version:        21.10.2
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        Ubuntu community theme "yaru" 
 
 License:        LGPLv3 and CC-BY-SA
@@ -183,7 +183,10 @@ fi
 
 %changelog
 
-* Sat Oct 03 2021 David Va <davidva AT tuta DOT io> 21.10.2-7
+* Sun Oct 24 2021 David Va <davidva AT tuta DOT io> 21.10.2-8
+- Updated to current commit
+
+* Sun Oct 03 2021 David Va <davidva AT tuta DOT io> 21.10.2-7
 - Updated to 21.10.2
 
 * Sat Sep 18 2021 David Va <davidva AT tuta DOT io> 21.10.1-8
